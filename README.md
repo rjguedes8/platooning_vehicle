@@ -24,7 +24,7 @@ The segmentation image is then manipulated so that we end up with just the leade
 With this final image we can create the states for our agents!
 
 ## Steer Agent
-The state for this agent consists only into two binary features called ‘left’ and ‘right’. When ‘left’ is 1 then ‘right’ is 0, this means that the agent is not aligned with the leader and that the leader is on the left of the agent. When ‘right’ is 1 then ‘left’ is 0, this means that the agent is not aligned with the leader and that the leader is on the right of the agent. When both ‘left’ and ‘right’ are 0, this means that the agent is aligned with the leader.
+The state for this agent consists in two binary features called ‘left’ and ‘right’. When ‘left’ is 1 then ‘right’ is 0, this means that the agent is not aligned with the leader and that the leader is on the left of the agent. When ‘right’ is 1 then ‘left’ is 0, this means that the agent is not aligned with the leader and that the leader is on the right of the agent. When both ‘left’ and ‘right’ are 0, this means that the agent is aligned with the leader.
 
 Using matrix manipulation on the filtered image, we can easily extract the following information to determine if ‘left’ is 1 or 0 and if ‘right’ is 1 or 0 by following these rules:
 1. If the center of the leader is on a pixel where the x coordinate is lower than 300 then ‘left’ is 1 and ‘right’ is 0;
