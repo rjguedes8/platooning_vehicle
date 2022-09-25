@@ -15,11 +15,11 @@ Segmentation camera provided by the simulator was used to retrieve the main info
 The segmentation camera classifies each object in a RGB image with a different tag that allows to map the tag to the object identified through CARLA’s documentation (https://carla.readthedocs.io/en/latest/ref_sensors/#semantic-segmentation-camera). When the simulation starts, every object in the environment is created with a tag.
 When this camera retrieves an image, the tag information is encoded in the red channel meaning that a pixel with a red value of ‘10’ belong to the object with tag ‘10'. The tag '10' will be the most important in our use case since it identifies the leader.
 
-    <img width="816" alt="image" src="https://user-images.githubusercontent.com/104824314/191325684-6bba592c-5f1b-4c4d-b775-ef658a5f455f.png">
+<img width="390" alt="image" src="https://user-images.githubusercontent.com/104824314/192152712-bd52646c-2c05-4e63-a43b-29d5e3c01f22.png">
 
 The segmentation image is then manipulated so that we end up with just the leader in the image as following:
 
-    <img width="870" alt="image" src="https://user-images.githubusercontent.com/104824314/191325927-d8b51e38-6a09-47ed-a7e7-1b8b9bbd945d.png">
+<img width="870" alt="image" src="https://user-images.githubusercontent.com/104824314/191325927-d8b51e38-6a09-47ed-a7e7-1b8b9bbd945d.png">
 
 With this final image we can create the states for our agents!
 
@@ -52,11 +52,11 @@ The values that constitute the state are normalized by dividing the distance val
 
 To perform transfer learning with Xception I needed to change the last layer which was a 1000 node layer with a softmax activation function to one node layer with a linear activation function. Also, I created a dataset with roughly 25k images to train the network for our use case.
 
-    <img width="854" alt="image" src="https://user-images.githubusercontent.com/104824314/191328791-65916995-8a25-444e-970b-e17595c3a2e6.png">
+<img width="854" alt="image" src="https://user-images.githubusercontent.com/104824314/191328791-65916995-8a25-444e-970b-e17595c3a2e6.png">
 
 Then with distance predicted by Xception we can create the final state to feed our second PPO algorithm, this one with a continuos action space (in the image the state is not normalize to be easily interpretable):
 
-    <img width="859" alt="image" src="https://user-images.githubusercontent.com/104824314/191328995-f1f506a2-ecb1-4fbb-b9e4-5bc81230ca54.png">
+   <img width="859" alt="image" src="https://user-images.githubusercontent.com/104824314/191328995-f1f506a2-ecb1-4fbb-b9e4-5bc81230ca54.png">
 
 This network has different output layer with only one node with a tanh activation function that will determine if the agent will break (prediction < 0) or accelerate (prediction > 0).
 
