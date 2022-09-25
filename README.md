@@ -43,12 +43,12 @@ The decision is going to be determined based on the one with maximum probability
   <img width="854" alt="image" src="https://user-images.githubusercontent.com/104824314/191326750-204a910e-dad1-42f9-a64c-43b0e0aa1d19.png">
 
 ## Throttle/Break Agent
-The state for this agent consists only into three features called ‘distance’, ‘previous distance’ and ‘velocity.
+The state for this agent consists in three features called ‘distance’, ‘previous distance’ and ‘velocity.
 
 The ‘distance’ is the prediction from Xception as well as the ‘previous distance’ which is the prediction from the previous state. The velocity is the speed that the agent is driving in that moment.
 
-Apart from velocity, which is a sensor that every car has, to extract the remaining features for the state, the same segmented image used in the steer agent with the same conversion process to get a matrix filled with zeros except where the leader is in the image which is filled with ones is used to feed the Xception CNN that predicts the distance to create the state.
-The values that constitute the state are normalized by dividing the distance values by 25 (which is the maximum value allowed during training, otherwise the episode will end) and the velocity is divided by 100 (which will range the velocity feature between 0 and 1.2 since the maximum velocity allowed is 120 km/h).
+Apart from velocity, which is a sensor that every car has, to extract the remaining features for the state, the same segmented image used in the steer agent is used to feed the Xception CNN that predicts the distance to create the state.
+The values in the state are normalized by dividing the distance values by 25 (which is the maximum value allowed during training, otherwise the episode will end) and the velocity is divided by 100 (which will make the velocity feature ranging between 0 and 1.2 since the maximum velocity allowed is 120 km/h).
 
 To perform transfer learning with Xception I needed to change the last layer which was a 1000 node layer with a softmax activation function to one node layer with a linear activation function. Also, I created a dataset with roughly 25k images to train the network for our use case.
 
