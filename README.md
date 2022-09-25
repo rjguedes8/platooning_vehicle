@@ -1,7 +1,7 @@
 # Reinforcement Learning and Computer Vision for self-driving platooning car
 This repository is part of my master thesis where the goal was to create an agent able to follow another car only using information retrieved by a monocular camera and, that the actions taken by the agent could be explainable and for that I used SHAP values.
 
-The devolpment was done in CARLA (https://carla.readthedocs.io/en/stable/) which is an open-source simulator for autonomous driving research developed by Intel, Toyota, and a Computer Vision Center in Barcelona.
+The development was done in CARLA (https://carla.readthedocs.io/en/stable/) which is an open-source simulator for autonomous driving research developed by Intel, Toyota, and a Computer Vision Center in Barcelona.
 
 **This project has 4 main aspects:** 
 1. Segmentation Camera available in CARLA
